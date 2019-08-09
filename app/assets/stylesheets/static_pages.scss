@@ -1,0 +1,22 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 定数
+$gray-medium-light: rgb(133, 133, 133);
+
+.home {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 670px) {
+
+  #top-title {
+    font-size: 28px;
+    font-style: oblique;
+  }
+
+  .top-wrapper p {
+    color: $gray-medium-light
+  }
+}
