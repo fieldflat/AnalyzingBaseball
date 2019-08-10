@@ -9,14 +9,65 @@ $gray-medium-light: rgb(133, 133, 133);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.top-wrapper {
+  background-image: url("/assets/home/top-image.jpg");
+  background-size: cover;
+  height: 500px;
+}
+
+.top-mask {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#top-heading {
+  font-style: oblique;
+  font-weight: bold;
+  line-height: 500px;
+}
+
+.description {
+  color: $gray-medium-light;
+  font-size: 14px;
+}
+
+#heading {
+  font-style: oblique;
+  font-weight: bold;
+  margin: 30px 0;
+}
+
+.simple-heading {
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7db4e6;/*左線*/
+  margin: 20px 0;
+}
+
+footer {
+  height: 300px;
+  background-color: rgba(33, 28, 61, 0.89);
+  margin-top: 100px;
+  color: white;
+}
+
+footer a {
+  color: white;
+  display: block;
+  height: 40px;
+}
+
+// スマホレスポンシブ
 @media (max-width: 670px) {
 
-  #top-title {
-    font-size: 28px;
-    font-style: oblique;
+  #top-heading {
+    font-size: 32px;
   }
 
-  .top-wrapper p {
-    color: $gray-medium-light
+  #heading {
+    font-size: 32px;
   }
+
+
 }
