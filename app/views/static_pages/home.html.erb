@@ -1,4 +1,4 @@
-<f class="home">
+<div class="home">
   <div class="top-wrapper">
     <div class="top-mask">
       <h1 class="text-center" id="top-heading">データで差をつけろ。</h1>
@@ -45,19 +45,51 @@
     </div>
   </div>
 
+  <div class="middle-wrapper container my-5">
+
+    <div class="team-wrapper">
+      <h2 class="simple-heading">I高校 硬式野球部</h2>
+
+      <div>
+        <p class="font-weight-bold">このアプリの使用方法</p>
+        <p class="description">
+          毎日の練習内容のメモ，一週間ごとに行う個人の部日誌の提出，試合結果・個人成績の管理
+        </p>
+      </div>
+
+      <div>
+        <p class="font-weight-bold">成果</p>
+        <p class="description">
+          毎日の部日誌で日々の反省を振り返ることで，自分に足りないところを再確認することができた。また個人成績を管理し，
+          打者であったら自分の苦手なコースはどこかを確認でき，投手ならどのような配球をすると打たれてしまうかを分析することが
+          できる。
+        </p>
+      </div>
+
+      <div>
+        <p class="font-weight-bold">このアプリを使用して</p>
+        <p class="description">
+          データを分析することで，自分達が何をすべきかが明確になる。ただがむしゃらに練習しても，良い結果は得られない。
+          自分達のチームが足りないところをデータから分析し，それを補うような練習方法を考えることができるようになった。
+        </p>
+      </div>
+
+    </div>
+  </div>
+
   <div class="container text-center">
-    <h1 class="text-center" id="heading">チーム登録はこちら</h1>
+    <h1 class="text-center" id="heading">ユーザ登録はこちら</h1>
 
     <!-- PC・タブレット -->
     <div class="d-none d-md-block">
-      <button type="button" class="btn btn-primary btn-lg col-lg-4 my-3">チーム登録</button>
-      <button type="button" class="btn btn-success btn-lg col-lg-4 my-3">ログイン</button>
+      <%= link_to "ユーザ登録", new_user_path,  class: "btn btn-primary btn-lg col-lg-4 my-3" %>
+      <%= link_to "ログイン", '#',  class: "btn btn-success btn-lg col-lg-4 my-3" %>
     </div>
 
     <!-- スマートフォン -->
     <div class="d-md-none">
-      <button type="button" class="btn btn-primary btn-lg w-50 my-3">チーム登録</button>
-      <button type="button" class="btn btn-success btn-lg w-50">ログイン</button>
+      <%= link_to "ユーザ登録", new_user_path,  class: "btn btn-primary btn-lg col-lg-4 my-3" %>
+      <%= link_to "ログイン", '#',  class: "btn btn-success btn-lg col-lg-4 my-3" %>
     </div>
 
   </div>
@@ -65,18 +97,24 @@
   <!-- フッター (PC・タブレット) -->
   <footer class="py-5 d-none d-md-block">
     <div class="container">
-      <a href="#">お問い合わせ</a>
-      <a href="#">ログイン</a>
-      <a href="#">チーム登録</a>
+      <ul class="pl-0">
+        <li><%= link_to "お問い合わせ", "#", class: "d-md-inline-block" %></li>
+        <li><%= link_to "ユーザ登録", new_user_path, class: "d-md-inline-block" %></li>
+        <li><%= link_to "チーム登録", "#", class: "d-md-inline-block" %></li>
+        <li><%= link_to "ログイン", "#", class: "d-md-inline-block" %></li>
+      </ul>
     </div>
   </footer>
 
   <!-- フッター (スマートフォン) -->
   <footer class="py-5 d-md-none text-center">
     <div class="container">
-      <a href="#">お問い合わせ</a>
-      <a href="#">ログイン</a>
-      <a href="#">チーム登録</a>
+      <ul class="pl-0">
+        <li><%= link_to "お問い合わせ", "#", class: "d-md-inline-block" %></li>
+        <li><%= link_to "ユーザ登録", new_user_path, class: "d-md-inline-block" %></li>
+        <li><%= link_to "チーム登録", "#" , class: "d-md-inline-block"%></li>
+        <li><%= link_to "ログイン", "#", class: "d-md-inline-block" %></li>
+      </ul>
     </div>
   </footer>
 </div>
