@@ -77,31 +77,35 @@
     </div>
   </div>
 
-  <div class="container text-center">
-    <h1 class="text-center" id="heading">ユーザ登録はこちら</h1>
+  <% unless logged_in? %>
+    <div class="container text-center">
+      <h1 class="text-center" id="heading">ユーザ登録はこちら</h1>
 
-    <!-- PC・タブレット -->
-    <div class="d-none d-md-block">
-      <%= link_to "ユーザ登録", new_user_path,  class: "btn btn-primary btn-lg col-lg-4 my-3" %>
-      <%= link_to "ログイン", '#',  class: "btn btn-success btn-lg col-lg-4 my-3" %>
+      <!-- PC・タブレット -->
+      <div class="d-none d-md-block">
+        <%= link_to "ユーザ登録", new_user_path,  class: "btn btn-primary btn-lg col-lg-4 my-3" %>
+        <%= link_to "ログイン", login_path,  class: "btn btn-success btn-lg col-lg-4 my-3" %>
+      </div>
+
+      <!-- スマートフォン -->
+      <div class="d-md-none">
+        <%= link_to "ユーザ登録", new_user_path,  class: "btn btn-primary btn-lg col-lg-4 my-3" %>
+        <%= link_to "ログイン", login_path,  class: "btn btn-success btn-lg col-lg-4 my-3" %>
+      </div>
+
     </div>
-
-    <!-- スマートフォン -->
-    <div class="d-md-none">
-      <%= link_to "ユーザ登録", new_user_path,  class: "btn btn-primary btn-lg col-lg-4 my-3" %>
-      <%= link_to "ログイン", '#',  class: "btn btn-success btn-lg col-lg-4 my-3" %>
-    </div>
-
-  </div>
+  <% end %>
 
   <!-- フッター (PC・タブレット) -->
   <footer class="py-5 d-none d-md-block">
     <div class="container">
       <ul class="pl-0">
         <li><%= link_to "お問い合わせ", "#", class: "d-md-inline-block" %></li>
-        <li><%= link_to "ユーザ登録", new_user_path, class: "d-md-inline-block" %></li>
         <li><%= link_to "チーム登録", "#", class: "d-md-inline-block" %></li>
-        <li><%= link_to "ログイン", "#", class: "d-md-inline-block" %></li>
+        <% unless logged_in? %>
+          <li><%= link_to "ユーザ登録", new_user_path, class: "d-md-inline-block" %></li>
+          <li><%= link_to "ログイン", "#", class: "d-md-inline-block" %></li>
+        <% end %>
       </ul>
     </div>
   </footer>
@@ -111,9 +115,11 @@
     <div class="container">
       <ul class="pl-0">
         <li><%= link_to "お問い合わせ", "#", class: "d-md-inline-block" %></li>
-        <li><%= link_to "ユーザ登録", new_user_path, class: "d-md-inline-block" %></li>
         <li><%= link_to "チーム登録", "#" , class: "d-md-inline-block"%></li>
-        <li><%= link_to "ログイン", "#", class: "d-md-inline-block" %></li>
+        <% unless logged_in? %>
+          <li><%= link_to "ユーザ登録", new_user_path, class: "d-md-inline-block" %></li>
+          <li><%= link_to "ログイン", "#", class: "d-md-inline-block" %></li>
+        <% end %>
       </ul>
     </div>
   </footer>
