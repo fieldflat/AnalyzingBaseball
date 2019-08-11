@@ -11,7 +11,7 @@
           <a class="nav-link" href="#">Home</a>
         </li> %>
         <li class="nav-item">
-          <a class="nav-link" href="#">このサイトについて</a>
+          <%= link_to "このサイトについて", "#", class:"nav-link" %>
         </li>
       </ul>
 
@@ -30,12 +30,22 @@
          </div> %>
         <!-- ドロップダウンメニュー，ここまで -->
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">チーム登録</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ログイン</a>
-        </li>
+
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to "ログアウト", logout_path, method: :delete, class:"nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "ユーザ登録", new_user_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "チーム登録", new_team_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログイン", login_path, class:"nav-link" %>
+          </li>
+        <% end %>
       </ul>
 
     </div>
