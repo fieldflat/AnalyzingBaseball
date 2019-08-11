@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
+  has_many :member_teams, class_name: "TeamMember",
+                                foreign_key: "member_id",
+                                dependent: :destroy
+  has_many :teams, through: :member_teams, source: :member
+
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
