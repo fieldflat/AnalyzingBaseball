@@ -5,9 +5,9 @@ include the remember me checkbox
 -->
 
 <!-- Reference by https://bootsnipp.com/snippets/a6Pdk -->
-<h1 class="text-center" id="heading">ユーザ登録</h1>
+<h1 class="text-center" id="heading">チーム登録</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(@team) do |f| %>
   <div class="container">
       <div class="card card-container">
           <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
@@ -17,11 +17,11 @@ include the remember me checkbox
               
                 <%= render 'shared/error_messages', object: f.object %>
 
-                <%= f.label :name, "ユーザネーム", class: "my-1" %>
-                <%= f.text_field :name, id: "inputName", class: "form-control", placeholder: "(例)野球太郎" %>
+                <%= f.label :name, "チーム名", class: "my-1" %>
+                <%= f.text_field :name, id: "inputName", class: "form-control", placeholder: "(例)愛知野球クラブ" %>
 
-                <%= f.label :email, "メールアドレス", class: "my-1" %>
-                <%= f.email_field :email, id: "inputEmail", class: "form-control", placeholder: "(例)taro@example.com" %>
+                <%= f.label :team_id, "チームID(英数字8文字以上)", class: "my-1" %>
+                <%= f.text_field :team_id, id: "inputEmail", class: "form-control", placeholder: "(例)AichiClub" %>
 
                 <%= f.label :password, "パスワード", class: "my-1" %>
                 <%= f.password_field :password, id: "inputPassword", class: "form-control", placeholder: "6文字以上のパスワードを入力" %>
