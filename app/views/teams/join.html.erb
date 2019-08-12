@@ -1,0 +1,31 @@
+
+<!--
+you can substitue the span of reauth email for a input with the email and
+include the remember me checkbox
+-->
+
+<!-- Reference by https://bootsnipp.com/snippets/a6Pdk -->
+<h1 class="text-center" id="heading">チーム参加</h1>
+
+<%= form_for(@team, url: join_path) do |f| %>
+  <div class="container">
+      <div class="card card-container">
+          <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+          <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+          <p id="profile-name" class="profile-name-card"></p>
+          <form class="form-signin">
+
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%= f.label :team_id, "チームID(英数字8文字以上)", class: "my-1" %>
+            <%= f.text_field :team_id, id: "inputEmail", class: "form-control", placeholder: "(例)AichiClub" %>
+
+            <%= f.label :password, "パスワード", class: "my-1" %>
+            <%= f.password_field :password, id: "inputPassword", class: "form-control", placeholder: "6文字以上のパスワードを入力" %>
+
+            <%= f.submit "参加する", class: "btn btn-primary", class: "btn btn-lg btn-primary btn-block btn-signin my-3" %>
+
+          </form><!-- /form -->
+      </div><!-- /card-container -->
+  </div><!-- /container -->
+<% end %>
