@@ -7,15 +7,20 @@ class Team < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  has_many :team_members, class_name: "TeamMember",
+  has_many :member_teams, class_name: "TeamMember",
                                 foreign_key: "team_id",
                                 dependent: :destroy
-  has_many :members, through: :team_members, source: :team
-  
+  has_many :members, through: :member_teams, source: :member
+
   # 渡された文字列のハッシュ値を返す
   def Team.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def is_member?(user)
+    members.include?(user)
+  end
+
 end

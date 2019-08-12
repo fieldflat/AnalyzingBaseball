@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :teams
+  get    '/join',    to: 'teams#join'
+  post   '/join',    to: 'teams#register'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

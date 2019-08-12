@@ -1,3 +1,16 @@
 <div class="container">
-  <h1><%= current_user.name %>の ページ</h1>
+  <h1 class="text-center"><%= current_user.name %></h1>
+
+  <h2>所属しているチーム <%= link_to "チームに参加する", join_path,  class: "btn btn-primary col-lg-2" %> </h2>
+
+  <!-- current_userがうまく働いていない？ -->
+
+  <% if current_user.teams.present? %>
+    <% current_user.teams.each do |team| %>
+      <p><%= team.name %></p>
+    <% end %>
+  <% else %>
+    <p>まだありません</p>
+  <% end %>
+
 </div>

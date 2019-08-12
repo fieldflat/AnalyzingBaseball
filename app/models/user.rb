@@ -8,10 +8,10 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 
-  has_many :member_teams, class_name: "TeamMember",
+  has_many :team_members, class_name: "TeamMember",
                                 foreign_key: "member_id",
                                 dependent: :destroy
-  has_many :teams, through: :member_teams, source: :member
+  has_many :teams, through: :team_members, source: :team
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)
@@ -19,4 +19,17 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def register(team)
+    TeamMember.create(team_id: team.id, member_id: self.id)
+  end
+
+  def unregister(team)
+    member_teams.find_by(team_id: team.id).destroy
+  end
+
+  def is_register?(team)
+    teams.include?(team)
+  end
+
 end
