@@ -11,6 +11,7 @@ class Team < ApplicationRecord
                                 foreign_key: "team_id",
                                 dependent: :destroy
   has_many :members, through: :member_teams, source: :member
+  has_many :journals, dependent: :destroy
 
   # 渡された文字列のハッシュ値を返す
   def Team.digest(string)

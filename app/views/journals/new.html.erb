@@ -1,0 +1,10 @@
+<div class="container">
+  <%= form_for(@journal) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+      <%= hidden_field_tag :team_id, @team.id %>
+
+      <%= f.label :content, class: "my-1" %>
+      <%= f.text_area :content, class: "form-control", placeholder: "" %>
+      <%= f.submit "提出", class: "btn btn-primary", class: "btn btn-lg btn-primary btn-block btn-signin my-3" %>
+  <% end %>
+</div>
