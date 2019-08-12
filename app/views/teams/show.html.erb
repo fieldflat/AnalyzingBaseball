@@ -1,0 +1,19 @@
+<div class="container team-main">
+  <h1 class="text-center"><%= @team.name %></h1>
+
+  <h2>所属しているチーム</h2>
+
+  <% if @team.members.present? %>
+    <% @team.members.each do |member| %>
+      <p><%= link_to member.name, member %></p>
+    <% end %>
+  <% else %>
+    <p>まだメンバーがいません</p>
+  <% end %>
+
+  <% if @team.is_member?(current_user) %>
+    <h2>部日誌の提出</h2>
+    <%= link_to "部日誌を提出する", '#',  class: "btn btn-primary col-lg-2" %>
+  <% end %>
+
+</div>
