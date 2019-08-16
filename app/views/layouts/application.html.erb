@@ -20,7 +20,7 @@
 
   <body>
     <%= render 'static_pages/nav' %>
-    <div class="container my-3">
+    <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>

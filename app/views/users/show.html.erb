@@ -1,12 +1,6 @@
 <div class="container user-main">
-  <h1 class="text-center"><%= @user.name %></h1>
+  <h1 class="text-center heading py-3"><%= @user.name %></h1>
   <h2>所属しているチーム</h2>
-
-  <% if is_current_user?(@user) %>
-    <div class="text-center my-3">
-      <%= link_to "チームに参加する", join_path,  class: "btn btn-primary col-lg-2" %>
-    </div>
-  <% end %>
 
   <% if @user.teams.present? %>
     <% @user.teams.each do |team| %>
@@ -14,6 +8,12 @@
     <% end %>
   <% else %>
     <p>まだありません</p>
+  <% end %>
+
+  <% if is_current_user?(@user) %>
+    <div class="text-center my-3">
+      <%= link_to "チームに参加する", join_path,  class: "btn btn-primary col-lg-2" %>
+    </div>
   <% end %>
 
 </div>

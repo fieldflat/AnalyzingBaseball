@@ -1,7 +1,7 @@
 <div class="container team-main">
-  <h1 class="text-center"><%= @team.name %></h1>
+  <h1 class="text-center heading py-3"><%= @team.name %></h1>
 
-  <h2>所属しているチーム</h2>
+  <h2>所属しているメンバー</h2>
 
   <% if @team.members.present? %>
     <% @team.members.each do |member| %>
@@ -12,18 +12,19 @@
   <% end %>
 
   <% if @team.is_member?(current_user) %>
-    <h2>部日誌の提出</h2>
-    <%= link_to "部日誌を提出する", new_journal_path(params: {team_id: @team.id}), class: "btn btn-primary col-lg-2" %>
-  <% end %>
+    <h2>部日誌の提出状況</h2>
 
-  <h2>部日誌の提出状況</h2>
-
-  <% if @team.journals.present? %>
-    <% @team.journals.each do |journal| %>
-      <p><%= link_to journal.user.name, journal %> , <%= journal.updated_at %></p>
+    <% if @team.journals.present? %>
+      <% @team.journals.each do |journal| %>
+        <p><%= link_to journal.user.name, journal %> , <%= journal.updated_at %></p>
+      <% end %>
+    <% else %>
+      <p>まだありません</p>
     <% end %>
-  <% else %>
-    <p>まだありません</p>
+
+    <div class="text-center my-3">
+      <%= link_to "部日誌を提出する", new_journal_path(params: {team_id: @team.id}), class: "btn btn-primary col-lg-2" %>
+    </div>
   <% end %>
 
 </div>

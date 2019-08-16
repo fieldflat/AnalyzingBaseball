@@ -15,7 +15,8 @@ class JournalsController < ApplicationController
     if @journal.save
       redirect_to @journal.team
     else
-      redirect_to root_url
+      @team = @journal.team
+      render 'new'
     end
   end
 
