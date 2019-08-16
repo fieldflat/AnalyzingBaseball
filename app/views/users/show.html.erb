@@ -4,7 +4,8 @@
 
   <% if @user.teams.present? %>
     <% @user.teams.each do |team| %>
-      <p><%= link_to team.name, team %></p>
+      <p class="d-md-none"><%= link_to team.name, team %></p>
+      <p class="d-none d-md-inline-flex list-item"><%= link_to team.name, team %></p>
     <% end %>
   <% else %>
     <p>まだありません</p>

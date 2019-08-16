@@ -5,7 +5,8 @@
 
   <% if @team.members.present? %>
     <% @team.members.each do |member| %>
-      <p><%= link_to member.name, member %></p>
+      <p class="d-md-none"><%= link_to member.name, member %></p>
+      <p class="d-none d-md-inline-flex list-item"><%= link_to member.name, member %></p>
     <% end %>
   <% else %>
     <p>まだメンバーがいません</p>
@@ -16,7 +17,8 @@
 
     <% if @team.journals.present? %>
       <% @team.journals.each do |journal| %>
-        <p><%= link_to journal.user.name, journal %> , <%= journal.updated_at %></p>
+        <p class="d-md-none"><%= link_to journal.user.name, journal %>  <%= journal.updated_at %></p>
+        <p class="d-none d-md-inline-flex list-item text-center"><%= link_to journal.user.name, journal, style: "margin-right: 5px;" %>  <%= journal.updated_at.strftime('%Y/%m/%d %H:%M') %></p>
       <% end %>
     <% else %>
       <p>まだありません</p>
