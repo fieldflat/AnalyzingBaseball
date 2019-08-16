@@ -12,6 +12,7 @@ class User < ApplicationRecord
                                 foreign_key: "member_id",
                                 dependent: :destroy
   has_many :teams, through: :team_members, source: :team
+  has_many :journals, dependent: :destroy
 
   # 渡された文字列のハッシュ値を返す
   def User.digest(string)

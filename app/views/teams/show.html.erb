@@ -1,19 +1,32 @@
 <div class="container team-main">
-  <h1 class="text-center"><%= @team.name %></h1>
+  <h1 class="text-center heading py-3"><%= @team.name %></h1>
 
-  <h2>所属しているチーム</h2>
+  <h2>所属しているメンバー</h2>
 
   <% if @team.members.present? %>
     <% @team.members.each do |member| %>
-      <p><%= link_to member.name, member %></p>
+      <p class="d-md-none"><%= link_to member.name, member %></p>
+      <p class="d-none d-md-inline-flex list-item"><%= link_to member.name, member %></p>
     <% end %>
   <% else %>
     <p>まだメンバーがいません</p>
   <% end %>
 
   <% if @team.is_member?(current_user) %>
-    <h2>部日誌の提出</h2>
-    <%= link_to "部日誌を提出する", '#',  class: "btn btn-primary col-lg-2" %>
+    <h2>部日誌の提出状況</h2>
+
+    <% if @team.journals.present? %>
+      <% @team.journals.each do |journal| %>
+        <p class="d-md-none"><%= link_to journal.user.name, journal %>  <%= journal.updated_at %></p>
+        <p class="d-none d-md-inline-flex list-item text-center"><%= link_to journal.user.name, journal, style: "margin-right: 5px;" %>  <%= journal.updated_at.strftime('%Y/%m/%d %H:%M') %></p>
+      <% end %>
+    <% else %>
+      <p>まだありません</p>
+    <% end %>
+
+    <div class="text-center my-3">
+      <%= link_to "部日誌を提出する", new_journal_path(params: {team_id: @team.id}), class: "btn btn-primary col-lg-2" %>
+    </div>
   <% end %>
 
 </div>

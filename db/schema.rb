@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_144830) do
+ActiveRecord::Schema.define(version: 2019_08_12_061705) do
+
+  create_table "journals", force: :cascade do |t|
+    t.text "content"
+    t.integer "team_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_journals_on_team_id"
+    t.index ["user_id"], name: "index_journals_on_user_id"
+  end
 
   create_table "team_members", force: :cascade do |t|
     t.integer "team_id"
